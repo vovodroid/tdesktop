@@ -1586,13 +1586,13 @@ bool ListWidget::isEmpty() const {
 }
 
 bool ListWidget::hasCopyRestriction(HistoryItem *item) const {
-	return _delegate->listCopyRestrictionType(item)
-		!= CopyRestrictionType::None;
+	return false;//_delegate->listCopyRestrictionType(item)
+		//!= CopyRestrictionType::None;
 }
 
 bool ListWidget::hasCopyMediaRestriction(not_null<HistoryItem*> item) const {
-	return _delegate->listCopyMediaRestrictionType(item)
-		!= CopyRestrictionType::None;
+	return false;//_delegate->listCopyMediaRestrictionType(item)
+		//!= CopyRestrictionType::None;
 }
 
 bool ListWidget::showCopyRestriction(HistoryItem *item) {
@@ -1618,6 +1618,7 @@ bool ListWidget::showCopyMediaRestriction(not_null<HistoryItem*> item) {
 }
 
 bool ListWidget::hasCopyRestrictionForSelected() const {
+	return false;
 	if (hasCopyRestriction()) {
 		return true;
 	}
@@ -1651,6 +1652,7 @@ bool ListWidget::showCopyRestrictionForSelected() {
 }
 
 bool ListWidget::hasSelectRestriction() const {
+    return false;
 	return session().frozen()
 		|| (_delegate->listSelectRestrictionType()
 			!= CopyRestrictionType::None);

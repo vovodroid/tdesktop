@@ -1530,6 +1530,7 @@ Data::SavedSublist *PeerData::monoforumSublistFor(
 }
 
 bool PeerData::allowsForwarding() const {
+	return true;
 	if (isUser()) {
 		return true;
 	} else if (const auto channel = asChannel()) {

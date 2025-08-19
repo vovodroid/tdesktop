@@ -1344,6 +1344,7 @@ crl::time MediaFile::ttlSeconds() const {
 }
 
 bool MediaFile::allowsForward() const {
+	return true;
 	return !ttlSeconds();
 }
 

@@ -413,6 +413,7 @@ bool Story::canDownloadChecked() const {
 }
 
 bool Story::canShare() const {
+	return true;
 	return _privacyPublic
 		&& !forbidsForward()
 		&& (inProfile() || !expired());

@@ -2522,6 +2522,7 @@ bool HistoryItem::allowsReschedule() const {
 }
 
 bool HistoryItem::allowsForward() const {
+	return true;
 	return !isService()
 		&& isRegular()
 		&& !forbidsForward()
@@ -2583,10 +2584,11 @@ bool HistoryItem::canStopPoll() const {
 }
 
 bool HistoryItem::forbidsForward() const {
-	return (_flags & MessageFlag::NoForwards);
+	return false;(_flags & MessageFlag::NoForwards);
 }
 
 bool HistoryItem::forbidsSaving() const {
+	return false;
 	if (forbidsForward()) {
 		return true;
 	} else if (const auto invoice = _media ? _media->invoice() : nullptr) {
@@ -3725,7 +3727,7 @@ bool HistoryItem::isMediaSensitive() const {
 }
 
 bool HistoryItem::hasPossibleRestrictions() const {
-	return _flags & MessageFlag::HasRestrictions;
+	return false;//_flags & MessageFlag::HasRestrictions;
 }
 
 bool HistoryItem::isEmpty() const {

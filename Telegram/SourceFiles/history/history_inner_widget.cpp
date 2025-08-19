@@ -644,6 +644,7 @@ void HistoryInner::setupSwipeReplyAndBack() {
 }
 
 bool HistoryInner::hasSelectRestriction() const {
+	return false;
 	if (session().frozen()) {
 		return true;
 	} else if (!_sharingDisallowed.current()) {
@@ -3169,12 +3170,12 @@ void HistoryInner::showContextMenu(QContextMenuEvent *e, bool showFromTouch) {
 }
 
 bool HistoryInner::hasCopyRestriction(HistoryItem *item) const {
-	return !_peer->allowsForwarding() || (item && item->forbidsForward());
+	return false;//!_peer->allowsForwarding() || (item && item->forbidsForward());
 }
 
 bool HistoryInner::hasCopyMediaRestriction(
 		not_null<HistoryItem*> item) const {
-	return hasCopyRestriction(item) || item->forbidsSaving();
+	return false;//hasCopyRestriction(item) || item->forbidsSaving();
 }
 
 bool HistoryInner::showCopyRestriction(HistoryItem *item) {
@@ -3198,6 +3199,7 @@ bool HistoryInner::showCopyMediaRestriction(not_null<HistoryItem*> item) {
 }
 
 bool HistoryInner::hasCopyRestrictionForSelected() const {
+	return false;
 	if (hasCopyRestriction()) {
 		return true;
 	}

@@ -77,6 +77,7 @@ Type Provider::type() {
 }
 
 bool Provider::hasSelectRestriction() {
+	return false;
 	if (_peer->session().frozen()) {
 		return true;
 	} else if (_peer->allowsForwarding()) {
